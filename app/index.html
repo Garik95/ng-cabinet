@@ -9,22 +9,56 @@
     <link rel="stylesheet" href="custom/ng/app.css">
     <link rel="stylesheet" href="scripts/angular-material/angular-material.css">
     <script src="scripts/angular/angular.js"></script>
-    <!-- <script src="scripts/angular-route/angular-route.js"></script> -->
+    <script src="scripts/angular-route/angular-route.js"></script>
     <script src="scripts/angular-material/angular-material.js"></script>
     <script src="scripts/angular-animate/angular-animate.js"></script>
     <script src="scripts/angular-aria/angular-aria.js"></script>
+    <base href="/">
 </head>
 <body>
-    <h1>HELLO!</h1>
-    <div layout="column" ng-cloak>
+    <div class="row">
+        <div class="col-sm-2">
+                <div layout-fill style="height:100%;" ng-cloak>
+
+                        <section layout-fill flex>
+                
+                      <md-sidenav
+                      class="md-sidenav-left"
+                      md-component-id="left"
+                      md-is-locked-open="$mdMedia('gt-md')"
+                      md-whiteframe="4">
+                
+                    <md-toolbar>
+                        <img src="https://wi.ipakyulibank.uz/logins/images/logo.png" alt="logo">
+                    </md-toolbar>
+                    <md-content layout-padding ng-controller="LeftCtrl">
+                            <ul>
+                                <li><md-button href="/" style="width:100%" class="text-right">UzCard</md-button></li>                              
+                                <li><md-button href="/services" style="width:100%" class="text-right">Оплата услуг</md-button></li>                              
+                                <li><md-button href="#" style="width:100%" class="text-right">История платежей</md-button></li>                              
+                                <li><md-button href="#" style="width:100%" class="text-right">Вклады</md-button></li>                              
+                                <li><md-button href="#" style="width:100%" class="text-right">Мои счета</md-button></li>                              
+                                <li><md-button href="#" style="width:100%" class="text-right">Новые услуги</md-button></li>                              
+                                <li><md-button href="#" style="width:100%" class="text-right">Курсы валют</md-button></li>
+                            </ul>
+                    </md-content>
+                
+                  </md-sidenav>
+                  </section>
+                  </div>
+        </div>
+        <div class="col-sm-10">
+    <!-- <div layout="column" ng-cloak>
 
         <md-content layout-padding>     
           <div layout="row" layout-sm="column" layout-align="space-around">
             <md-progress-circular md-mode="indeterminate"></md-progress-circular>
           </div>          
         </md-content>     
-      </div>
-
+      </div> -->
+      <ng-view></ng-view>
+    </div>
+</div>
     <script src="custom/ng/app.js"></script>
 </body>
 </html>

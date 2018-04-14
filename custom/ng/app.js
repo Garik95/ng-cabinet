@@ -1,25 +1,33 @@
-angular
-  .module('cabinet', ['ngMaterial'], function($mdThemingProvider) {
-    $mdThemingProvider.theme('docs-dark', 'default')
-      .primaryPalette('yellow')
-      .dark();
-  })
-  // .controller('AppCtrl', ['$interval',
-  //   function($interval) {
-  //     var self = this;
+ var cabapp = angular.module('cabinet', ['ngMaterial','ngRoute'], function($mdThemingProvider) {
+    $mdThemingProvider.theme('default')
+      .primaryPalette('green');
+  });
 
-  //     self.activated = true;
-  //     self.determinateValue = 30;
+	cabapp.config(['$routeProvider','$locationProvider',function($routeProvider,$locationProvider) {
+		console.log($routeProvider);
+		$routeProvider
 
-  //     // Iterate every 100ms, non-stop and increment
-  //     // the Determinate loader.
-  //     $interval(function() {
+			// route for the home page
+			.when('/', {
+				templateUrl : '../pages/home.html',
+				// controller  : 'mainController'
+      })
+      .when('/services', {
+				templateUrl : '../../pages/services.html',
+				// controller  : 'mainController'
+			})
+			.otherwise({redirectTo:"/"});
+			$locationProvider.html5Mode(true);
+	}]);
 
-  //       self.determinateValue += 1;
-  //       if (self.determinateValue > 100) {
-  //         self.determinateValue = 30;
-  //       }
 
-  //     }, 100);
-  //   }
-  // ]);
+  cabapp.controller('LeftCtrl', function ($scope, $timeout, $mdSidenav, $log) {
+    $scope.close = function () {
+      // Component lookup should always be available since we are not using `ng-if`
+      $mdSidenav('left').close()
+        .then(function () {
+          $log.debug("close LEFT is done");
+        });
+
+    };
+  });
