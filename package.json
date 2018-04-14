@@ -7,5 +7,17 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.6.9",
+    "angular-animate": "^1.6.9",
+    "angular-aria": "^1.6.9",
+    "angular-material": "^1.1.8",
+    "angular-route": "^1.6.9",
+    "bootstrap": "^4.1.0",
+    "ejs": "^2.5.8",
+    "express": "^4.16.3",
+    "jquery": "^3.3.1",
+    "popper": "^1.0.1"
+  }
 }
