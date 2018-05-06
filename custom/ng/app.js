@@ -4,16 +4,15 @@
   });
 
 	cabapp.config(['$routeProvider','$locationProvider',function($routeProvider,$locationProvider) {
-		console.log($routeProvider);
 		$routeProvider
 
 			// route for the home page
 			.when('/', {
-				templateUrl : '../pages/home.html',
-				// controller  : 'mainController'
+				templateUrl : '../pages/home.ejs',
+				controller  : 'mainController'
       })
       .when('/services', {
-				templateUrl : '../../pages/services.html',
+				templateUrl : '../../pages/services.ejs',
 				// controller  : 'mainController'
 			})
 			.otherwise({redirectTo:"/"});
@@ -30,4 +29,10 @@
         });
 
     };
+  });
+
+  cabapp.controller('mainController', function ($scope, $timeout) {
+    $scope.isShow = true;
+    $scope.name = "Home!1";
+    $scope.isShow = false;
   });
